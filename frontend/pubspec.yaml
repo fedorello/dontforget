@@ -1,0 +1,53 @@
+name: dontforget
+description: Smart reminders for medications, shopping and tasks
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State management
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.5
+
+  # Navigation
+  go_router: ^13.2.0
+
+  # DI
+  get_it: ^7.7.0
+
+  # Network
+  dio: ^5.4.3
+
+  # Storage
+  shared_preferences: ^2.3.3
+
+  # Image
+  image_picker: ^1.1.2
+
+  # Localization
+  intl: ^0.20.2
+
+  # Utils
+  uuid: ^4.5.1
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/images/
+    - assets/animations/
