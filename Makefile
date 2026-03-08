@@ -3,6 +3,7 @@ BACKEND_DIR := backend
 FRONTEND_DIR := frontend
 BACKEND_PORT := 8787
 FRONTEND_PORT := 9191
+PROD_API_URL := https://dontforget-production.up.railway.app
 BACKEND_LOG := /tmp/dontforget_backend.log
 FRONTEND_LOG := /tmp/dontforget_frontend.log
 BACKEND_PID := /tmp/dontforget_backend.pid
@@ -158,6 +159,13 @@ test-api:
 clean-db:
 	@rm -f $(BACKEND_DIR)/dontforget.db
 	@echo "  ✓ БД удалена"
+
+build-web:
+	@echo "→ Сборка Flutter Web (prod)..."
+	@cd $(FRONTEND_DIR) && $(FLUTTER) build web \
+		--dart-define=API_BASE_URL=$(PROD_API_URL) \
+		--suppress-analytics
+	@echo "  ✓ Готово: $(FRONTEND_DIR)/build/web/"
 
 clean: stop clean-db
 	@rm -rf $(BACKEND_DIR)/.venv
